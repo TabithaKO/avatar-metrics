@@ -74,4 +74,6 @@ Compute the image labels based on the face attributes from the CelebA annotation
 $ cd open_clip/get_embeddings.py --output_path "path to output csv" --input_path "path to input dir"
 ```
 
-
+TO DO:
+- Write a dedicated script for LPIPS calculations on generated images
+- Work on computing FID score using generative networks
