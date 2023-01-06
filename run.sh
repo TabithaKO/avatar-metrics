@@ -24,6 +24,9 @@ git clone https://github.com/mlfoundations/open_clip.git
 cd open_clip
 $pip3 install pip install open_clip_torch
 cd ..
+mv get_embeddings.py open_clip/
+mv get_text_embeddings.py open_clip/
+mv get_scores.py open_clip/
 echo "I have installed the open_clip library"
 git clone https://github.com/TabithaKO/face-parsing.PyTorch.git
 cd face-parsing.PyTorch
