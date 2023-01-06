@@ -1,6 +1,7 @@
 #!/bin/bash  
 echo "Creating a virtual environment called metric-env"  
 python3 -m venv ./metric
+source ./metric/bin/activate
 echo "I have created a virtual environment called metric"
 pip3 install awscli==1.27.36 
 pip3 install boto3==1.26.32 
