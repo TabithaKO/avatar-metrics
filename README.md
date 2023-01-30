@@ -29,7 +29,7 @@ While using this repository, I assume that you have a folder full of real face i
 
 While the face detection script isn't perfect, if you wish to crop your images around the subject's face you can use the following script:
 ```
-$ cd face-parsing.PyTorch/face_detect.py --input_dir "input directory" --output_dir "output directory"
+$ python3 face-parsing.PyTorch/face_detect.py --input_dir "input directory" --output_dir "output directory"
 ```
 **FID SCORE:**
 
@@ -40,20 +40,20 @@ The FID compares the distribution of generated images with the distribution of r
 ```
 
 ```
-$ cd face-parsing.PyTorch/fid.py --path_to_fake "path to generated images" --path_to_real "path to real images" --outpath "path to csv file"
+$ python3 face-parsing.PyTorch/fid.py --path_to_fake "path to generated images" --path_to_real "path to real images" --outpath "path to csv file"
 ```
 
 **SKIN TONE EUCLIDEAN DISTANCE SCORE** 
 
 This the euclidean distance between average of the skin pixels of a real image and the skin pixels of the generated image. The face-parsing script below segments the skin pixels on the face of the input image and averages out the values into a 3-dimensional [B,G,R] vecor which is stored in the output csv file.
 ```
-$ cd face-parsing.PyTorch/face-parse.py --bucket_name "S3 bucket name" --S3_ID "S3 ID" --S3_Key "S3 Key" \
+$ python3 face-parsing.PyTorch/face-parse.py --bucket_name "S3 bucket name" --S3_ID "S3 ID" --S3_Key "S3 Key" \
 --input_dir "your input images" --output_name "output csv file"
 ```
 If you have a folder full of images that you want to split across the average [B,G,R] skin values threshold, you can use the domain splitting code. Why do I have this code? Well, my research is based on creating generative models that produce images whose skin complexion is more representative of the general population. I wanted to create models that generated faces with darker skin tones (like mine :)).
 
 ```
-$ cd face-parsing.PyTorch/domain_splitting.py  --bucket_name "S3 bucket name" --S3_ID "S3 ID" \
+$ python3 face-parsing.PyTorch/domain_splitting.py  --bucket_name "S3 bucket name" --S3_ID "S3 ID" \
 --S3_Key "S3 Key"  --input_dir "your input images" --output_dir_domain_1 "path to first output folder" \
 --output_dir_domain_2 "path to second output folder" --b_avg "average blue value" \
 --g_avg "average green value"  --r_avg "average red value"
@@ -63,15 +63,15 @@ $ cd face-parsing.PyTorch/domain_splitting.py  --bucket_name "S3 bucket name" --
 
 Get the image embeddings:
 ```
-$ cd open_clip/get_embeddings.py --output_path "path to output csv" --input_path "path to input dir"
+$ python3 open_clip/get_embeddings.py --output_path "path to output csv" --input_path "path to input dir"
 ```
 Get text embeddings:
 ```
-$ cd open_clip/get_embeddings.py --output_path "path to output csv" --list "list of strings to embed"
+$ python3 open_clip/get_embeddings.py --output_path "path to output csv" --list "list of strings to embed"
 ```
 Compute the image labels based on the face attributes from the CelebA annotations
 ```
-$ cd open_clip/get_embeddings.py --output_path "path to output csv" --input_path "path to input dir"
+$ python3 open_clip/get_embeddings.py --output_path "path to output csv" --input_path "path to input dir"
 ```
 
 TO DO:
