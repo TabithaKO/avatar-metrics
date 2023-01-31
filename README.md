@@ -74,6 +74,37 @@ Compute the image labels based on the face attributes from the CelebA annotation
 $ python3 open_clip/get_embeddings.py --output_path "path to output csv" --input_path "path to input dir"
 ```
 
+**CLIP Scores**
+In order to compute the CLIP Score and the CLIP Fretchet Distance you need to run:
+```
+# computing CLIP score
+thisdict = [{"data_name":"dataset_0","data_path":"path_to_dataset_0_CLIP_embeddings.csv"},
+           {"data_name":"dataset_1", "data_path":"path_to_dataset_1_CLIP_embeddings.csv"},
+           ...
+           {"data_name":"dataset_n", "data_path":"path_to_dataset_n_CLIP_embeddings.csv"}]
+
+with open('dict_name.csv', 'w') as csvfile:
+    writer = csv.DictWriter(csvfile, fieldnames = ["data_name","data_path"])
+    writer.writeheader()
+    writer.writerows(thisdict)
+    
+$ python3 CLIP_Distance.py --dict_csv dict_name.csv --save_path_csv path_to_save_output.csv"
+```
+```
+# computing CLIP Fretchet Distance
+thisdict = [{"data_name":"dataset_0","data_path":"path_to_dataset_0_CLIP_embeddings.csv"},
+           {"data_name":"dataset_1", "data_path":"path_to_dataset_1_CLIP_embeddings.csv"},
+           ...
+           {"data_name":"dataset_n", "data_path":"path_to_dataset_n_CLIP_embeddings.csv"}]
+
+with open('dict_name.csv', 'w') as csvfile:
+    writer = csv.DictWriter(csvfile, fieldnames = ["data_name","data_path"])
+    writer.writeheader()
+    writer.writerows(thisdict)
+    
+$ python3  CLIP_Wasserstein.py --dict_csv dict_name.csv --save_path_csv path_to_save_output.csv"
+```
+
 TO DO:
 - Write a dedicated script for LPIPS calculations on generated images
 - Work on computing FID score using generative networks
