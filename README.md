@@ -88,7 +88,7 @@ with open('dict_name.csv', 'w') as csvfile:
     writer.writeheader()
     writer.writerows(thisdict)
     
-$ python3 CLIP_Distance.py --dict_csv dict_name.csv --save_path_csv path_to_save_output.csv"
+$ python3 CLIP_Distance.py --dict_csv dict_name.csv --save_path_csv path_to_save_output.csv
 ```
 ```
 # computing CLIP Fretchet Distance
@@ -102,7 +102,7 @@ with open('dict_name.csv', 'w') as csvfile:
     writer.writeheader()
     writer.writerows(thisdict)
     
-$ python3  CLIP_Wasserstein.py --dict_csv dict_name.csv --save_path_csv path_to_save_output.csv"
+$ python3  CLIP_Wasserstein.py --dict_csv dict_name.csv --save_path_csv path_to_save_output.csv
 ```
 
 TO DO:
